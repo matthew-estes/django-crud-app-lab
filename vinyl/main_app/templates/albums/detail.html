@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ album.title }}</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>{{ album.title }}</h1>
+      <div class="album-info">
+        <img src="{{ album.cover_image_url }}" alt="{{ album.title }}" class="album-cover" />
+        <div class="album-details">
+          <p><strong>Artist:</strong> {{ album.artist }}</p>
+          <p><strong>Release Year:</strong> {{ album.release_year }}</p>
+          <p><strong>Description:</strong> {{ album.description }}</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a href="{% url 'album_update' album.id %}" class="btn edit-btn">Edit Album</a>
+        <form method="post" action="{% url 'album_delete' album.id %}" style="display: inline">
+          {% csrf_token %}
+          <button type="submit" class="btn delete-btn">Delete Album</button>
+        </form>
+      </div>
+    </div>

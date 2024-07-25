@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Album List</title>
+  </head>
+  <body>
+    <a href="{% url 'album_create' %}" class="btn create-btn">Create New Album</a>
+    <div class="container">
+      <ul class="album-list">
+        {% for album in albums %}
+        <li class="album-item">
+          <a href="{% url 'album_detail' album.id %}">
+            <img src="{{ album.cover_image_url }}" alt="{{ album.title }}" width="300" />
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Album(models.Model):
     title = models.CharField(max_length=200)
@@ -9,4 +10,8 @@ class Album(models.Model):
 
     def __str__(self):
         return f"{self.title} by {self.artist}"
+    
+    def get_absolute_url(self):
+         return reverse('album-detail', kwargs={'album_id': self.id})
+
 
