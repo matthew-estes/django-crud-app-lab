@@ -16,4 +16,5 @@ urlpatterns = [
         views.AlbumDelete.as_view(),
         name="album_delete",
     ),
+    path('songs/<int:song_id>/', views.SongDetailView.as_view(), name='song-detail'),
 ]
