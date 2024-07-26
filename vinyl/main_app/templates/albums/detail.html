@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>{{ album.title }}</title>
-    <link rel="stylesheet" href="{% static 'css/albums/album-detail.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/albums/album_detail.css' %}" />
   </head>
   <body>
     <div class="container">
@@ -15,6 +15,16 @@
           <p><strong>Artist:</strong> {{ album.artist }}</p>
           <p><strong>Release Year:</strong> {{ album.release_year }}</p>
           <p><strong>Description:</strong> {{ album.description }}</p>
+          <h2>Noteworthy Songs</h2>
+  <ul>
+    {% for song in songs %}
+      <li>
+        <strong>{{ song.track_number }}. {{ song.title }}</strong> - {{ song.duration }}
+      </li>
+      {% empty %}
+        <p>No songs available for this album.</p>
+      {% endfor %}
+    </ul>
           <a href="{% url 'album_update' album.id %}" class="btn edit-btn">Edit Album</a>
         <form method="post" action="{% url 'album_delete' album.id %}" style="display: inline">
           {% csrf_token %}

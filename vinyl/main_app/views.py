@@ -1,6 +1,6 @@
-from django.shortcuts import render
-
-from .models import Album
+from django.shortcuts import render, redirect
+from .forms import SongForm
+from .models import Album, Song
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
@@ -31,4 +31,17 @@ def album_index(request):
 
 def album_detail(request, album_id):
     album = Album.objects.get(id=album_id)
-    return render(request, "albums/detail.html", {"album": album})
+    songs = album.songs.all()
+    return render(request, "albums/detail.html", {"album": album, 'songs': songs})
+
+
+def add_song(request, album_id):
+
+    form = SongForm(request.POST)
+
+    if form.is_valid():
+
+        new_song = form.save(commit=False)
+        new_song.album_id = album_id
+        new_song.save()
+    return redirect("album_detail", album_id=album_id)

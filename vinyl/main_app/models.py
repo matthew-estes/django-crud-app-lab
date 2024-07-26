@@ -22,6 +22,9 @@ class Song(models.Model):
     duration = models.DurationField()
     track_number = models.IntegerField()
 
+    class Meta:
+        ordering = ['track_number']
+
     def __str__(self):
         return f"{self.title} from {self.album.title}"
 
