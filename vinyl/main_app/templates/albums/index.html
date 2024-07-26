@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
     <title>Album List</title>
   </head>
   <body>
@@ -12,7 +13,7 @@
         {% for album in albums %}
         <li class="album-item">
           <a href="{% url 'album_detail' album.id %}">
-            <img src="{{ album.cover_image_url }}" alt="{{ album.title }}" width="300" />
+            <img src="{{ album.cover_image_url }}" alt="{{ album.title }}" height="400" width="400" />
           </a>
         </li>
         {% endfor %}
