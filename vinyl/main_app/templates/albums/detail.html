@@ -15,20 +15,33 @@
           <p><strong>Artist:</strong> {{ album.artist }}</p>
           <p><strong>Release Year:</strong> {{ album.release_year }}</p>
           <p><strong>Description:</strong> {{ album.description }}</p>
-          <h2>Noteworthy Songs</h2>
-  <ul>
-    {% for song in songs %}
-      <li>
-        <strong>{{ song.track_number }}. {{ song.title }}</strong> - {{ song.duration }}
-      </li>
-      {% empty %}
-        <p>No songs available for this album.</p>
-      {% endfor %}
-    </ul>
+          
+          <h2>Favorite Songs</h2>
+          {% if songs.exists %}
+            <ul>
+              {% for song in songs %}
+                <li>
+                  Track #{{ song.track_number }}: {{ song.title }}
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p></p>
+          {% endif %}
+
+          <h2>Add Song</h2>
+          <form action="{% url 'album_detail' album.id %}" method="post" autocomplete="off">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn submit">Add Song</button>
+          </form>
+          
+          <a href="{% url 'album_index' %}" class="btn secondary">Back to Album List</a>
           <a href="{% url 'album_update' album.id %}" class="btn edit-btn">Edit Album</a>
-        <form method="post" action="{% url 'album_delete' album.id %}" style="display: inline">
-          {% csrf_token %}
-          <button type="submit" class="btn delete-btn">Delete Album</button>
+          <form method="post" action="{% url 'album_delete' album.id %}" style="display: inline">
+            {% csrf_token %}
+            <button type="submit" class="btn delete-btn">Delete Album</button>
+          </form>
         </div>
       </div>
     </div>

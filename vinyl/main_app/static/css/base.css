@@ -3,5 +3,25 @@ body {
   background-size: 100% 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  color: white;
+  font-size: 80px;
+
+}
+
+.container {
+  font-size: 40px;
+  text-decoration: none;
+  color: red;
+}
+
+.back-btn{
+  font-size: 40px;
+  text-decoration: none;
+  color: red;
 }

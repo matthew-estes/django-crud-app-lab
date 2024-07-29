@@ -1,6 +1,8 @@
+/* albums/album_detail.css */
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
+  
+    background-color: #000000;
     margin: 0;
     padding: 0;
 }
@@ -15,9 +17,9 @@ body {
 }
 
 h1 {
-  
-    color: #333;
+    color: #000000;
     font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
 .album-info {
@@ -30,6 +32,8 @@ h1 {
     width: 600px;
     height: auto;
     margin-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .album-details {
@@ -38,15 +42,63 @@ h1 {
 
 .album-details p {
     font-size: 1.2em;
-    color: #555;
+    color: #000000;
+    margin: 10px 0;
 }
 
+.album-details h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #999;
+    padding-bottom: 5px;
+}
 
-
-ul {
+.album-details ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
+.album-details ul li {
+    font-size: 1.2em;
+    background-color: #cfcfcf;
+    padding: 0;
+    margin: 0;
+}
 
+.album-details form {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn.secondary {
+    background-color: #555;
+}
+
+.btn.edit-btn {
+    background-color: #007bff;
+}
+
+.btn.submit {
+    background-color: #28a745;
+}
+
+.btn.delete-btn {
+    background-color: #dc3545;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}

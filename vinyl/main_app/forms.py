@@ -5,4 +5,4 @@ from .models import Song
 class SongForm(forms.ModelForm):
     class Meta:
         model = Song
-        fields = ["title", "album", "duration", "track_number"]
+        fields = ["title", "track_number"]

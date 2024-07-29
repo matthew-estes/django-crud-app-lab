@@ -15,6 +15,6 @@ urlpatterns = [
         "albums/<int:album_id>/delete/",
         views.AlbumDelete.as_view(),
         name="album_delete",
-    ),
-    path("albums/<int:album_id>/add_song", views.add_song, name="add_song"),
+    ), 
+    
 ]
