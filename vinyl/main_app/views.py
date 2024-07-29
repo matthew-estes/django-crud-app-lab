@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SongForm
-from .models import Album, Song
+from .models import Album, Song, Playlist
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-
+class PlaylistCreate(CreateView):
+    model = Playlist
+    fields = '__all__'
 
 class AlbumCreate(CreateView):
     model = Album
@@ -29,8 +31,6 @@ def album_index(request):
     albums = Album.objects.all()
     return render(request, "albums/index.html", {"albums": albums})
 
-
-
 def album_detail(request, album_id):
     album = get_object_or_404(Album, pk=album_id)
     songs = album.songs.all()  # Retrieve all songs related to this album
@@ -44,3 +44,7 @@ def album_detail(request, album_id):
     else:
         form = SongForm()
     return render(request, 'albums/detail.html', {'album': album, 'songs': songs, 'form': form})
+
+class PlaylistCreate(CreateView):
+    model = Playlist
+    fields = '__all__'

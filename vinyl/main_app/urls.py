@@ -16,5 +16,5 @@ urlpatterns = [
         views.AlbumDelete.as_view(),
         name="album_delete",
     ), 
-    
+    path('playlists/create/', views.PlaylistCreate.as_view(), name='playlist-create')
 ]
