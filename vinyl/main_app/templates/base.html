@@ -11,6 +11,15 @@
     {% endblock %}
   </head>
   <body>
+    <nav>
+    <ul>
+      <li><a href="{% url 'album_index' %}">All Albums</a></li>
+      <li><a href="{% url 'album_create' %}">Add an Album</a></li>
+      <!-- Add a new link -->
+      <li><a href="{% url 'playlist-create' %}">Create a Playlist</a></li>
+
+    </ul>
+  </nav>
     <main>
      {% block content %} 
      {% endblock %}
