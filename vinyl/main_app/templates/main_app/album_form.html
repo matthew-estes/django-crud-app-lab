@@ -1,13 +1,27 @@
-{% extends 'base.html' %} {% load static %} {% block head %}
-<link rel="stylesheet" href="{% static 'css/form.css' %}" />
-{% endblock %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
 
-<form action="" method="post" class="form-container">
-    {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-    </table>
-    <button type="submit" class="btn submit">Submit!</button>
-  </form>
+{% block title %}
+    {% if object %}
+        Edit Album
+    {% else %}
+        Create Album
+    {% endif %}
+{% endblock %}
 
-  {% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{% if object %} Edit Album {% else %} Add an Album {% endif %}</h1>
+    <form action="" method="post" class="form-container">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit" class="btn submit">Submit!</button>
+    </form>
+</div>
+{% endblock %}

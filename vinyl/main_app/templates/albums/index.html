@@ -1,24 +1,28 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
-    <title>Album List</title>
-  </head>
-  <body>
-    <a href="{% url 'album_create' %}" class="btn create-btn">Create New Album</a>
-    <div class="container">
-      <ul class="album-list">
-        {% for album in albums %}
-        <li class="album-item">
-          <a href="{% url 'album_detail' album.id %}">
-            <img src="{{ album.cover_image_url }}" alt="{{ album.title }}" height="350" width="350" />
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </body>
-</html>
+{% extends 'base.html' %} {% load static %} {% block title %}Albums{% endblock %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock %} {% block content %}
+<div class="container">
+  <h1>Your Albums</h1>
+  {% if has_albums %}
+  <ul class="album-list">
+    {% for album in albums %}
+    <li class="album-item">
+      <a href="{% url 'album-detail' album.id %}">
+        <img src="{{ album.cover_image_url }}" alt="{{ album.title }}" />
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <div class="center-message">
+    <p>Uh oh...looks like an empty dance floor.</p>
+    <img
+      src="https://media1.tenor.com/m/lx2WSGRk8bcAAAAC/pulp-fiction-john-travolta.gif"
+      alt="John Travolta Confused"
+      class="no-albums-gif"
+    />
+    <p>Add an album to get the party started!</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

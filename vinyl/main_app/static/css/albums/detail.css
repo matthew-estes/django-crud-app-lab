@@ -1,0 +1,140 @@
+body {
+    background-color: black;
+    font-family: "Righteous", sans-serif;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  .navbar-left {
+    flex: 1;
+  }
+  
+  .navbar-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .navbar a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
+  
+  .navbar a:hover {
+    text-decoration: none;
+    color: red;
+  }
+
+
+  .container {
+    font-family: 'Roboto', sans-serif;
+    width: 80%;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 25px;
+  }
+  
+  .album-info {
+    display: flex;
+    gap: 40px; 
+    align-items: flex-start;
+    min-height: 600px;
+  }
+
+  
+  .album-cover {
+   
+   border-radius: 25px;
+   display: block;
+   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+
+  .album-details {
+    flex: 1;
+    margin-bottom: 0;
+    align-items: center;
+  }
+
+  h1 {
+    margin-bottom: -10px;
+  }
+
+  .favorite-songs {
+    margin-top: 50px;
+
+  }
+
+  .favorite-songs ul {
+    padding-left: 10px;
+    list-style-type: none;
+  
+  }
+  
+  
+  .add-song {
+    margin-top: 25px;
+  }
+  
+
+  
+ .add-song .btn{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+  }
+  .add-song .btn:hover {
+    background-color: rgb(177, 4, 4);
+  }
+
+  .album-actions .btn {
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 100px;
+    background-color: gray;
+    color: white;
+  }
+  
+  .album-actions .btn:hover {
+    background-color: rgb(58, 58, 58);
+  }
+  @media (max-width: 768px) {
+    .album-info {
+      flex-direction: column; 
+      align-items: center; 
+    }
+  
+    .album-cover {
+      width: 100%; 
+      max-width: 400px; 
+    }
+  
+    .album-content {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .album-actions {
+      justify-content: center;
+    }
+  }

@@ -1,19 +1,15 @@
-{% load static %} {% block head %}
+{% extends 'base.html' %} {% load static %} {% block title %} {% if object %} Edit Playlist {% else %} Create Playlist
+{% endif %} {% endblock %} {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/form.css' %}" />
 {% endblock %} {% block content %}
-<div class="page-header">
-  {% if object %}
-  <h1>Edit {{object.name}}</h1>
-  {% else %}
-  <h1>Add a Playlist</h1>
-  {% endif %}
+<div class="container">
+  <h1>{% if object %} Edit Playlist {% else %} Create Playlist {% endif %}</h1>
+  <form action="" method="post" class="form-container">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn submit">Submit!</button>
+  </form>
 </div>
-<form action="" method="post" class="form-container" autocomplete="off">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <button type="submit" class="btn submit">Submit!</button>
-</form>
-
 {% endblock %}

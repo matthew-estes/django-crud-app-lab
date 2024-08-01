@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Your Playlists{% endblock %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/playlists/playlist-index.css' %}" />
+{% endblock %} {% block content %}
+<div class="container">
+  <h1>Your Playlists</h1>
+  {% if has_playlists %}
+  <ul class="playlist-list">
+    {% for playlist in playlists %}
+    <li class="playlist-item">
+      <div class="card-content">
+        <h2>{{ playlist.name }}</h2>
+        <h3>Linked Albums:</h3>
+        <ul>
+          {% for album in playlist.albums.all %}
+          <li><a href="{% url 'album-detail' album.id %}">{{ album.title }}</a> by {{ album.artist }}</li>
+          {% endfor %} {% if not playlist.albums.all %}
+          <li>No linked albums yet.</li>
+          {% endif %}
+        </ul>
+        <a href="{% url 'playlist-update' playlist.pk %}" class="btn">Edit</a>
+        <form method="post" action="{% url 'playlist-delete' playlist.pk %}" class="form-inline">
+          {% csrf_token %}
+          <button type="submit" class="btn">Delete</button>
+        </form>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No playlists available until you create one.</p>
+  {% endif %}
+</div>
+{% endblock %}

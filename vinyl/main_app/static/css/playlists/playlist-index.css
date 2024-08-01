@@ -1,0 +1,170 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: "Righteous", Arial, sans-serif;
+  font-size: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-left {
+  flex: 1;
+}
+
+.navbar-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+  font-family: "Righteous", sans-serif;
+}
+
+.navbar a:hover {
+  color: red;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: #1e90ff;
+}
+
+.playlist-list {
+  font-family: 'Roboto', sans-serif;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.playlist-item {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  text-align: center;
+  width: 50%;
+}
+
+.playlist-item h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.playlist-item ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.playlist-item a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.playlist-item a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: gray;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: rgb(58, 58, 58);
+}
+
+.btn a {
+  color: white;
+  text-decoration: none;
+}
+
+.btn a:hover {
+  text-decoration: none;
+  background-color: rgb(58, 58, 58);
+}
+
+.form-inline {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #222;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0 20px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px;
+}
+
+th {
+  font-weight: normal;
+  vertical-align: top;
+  font-family: "Righteous", sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+td input,
+td textarea,
+td select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+}
+
+td input:focus,
+td textarea:focus,
+td select:focus {
+  border-color: #888;
+  outline: none;
+}

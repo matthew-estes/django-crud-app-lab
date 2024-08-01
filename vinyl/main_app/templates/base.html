@@ -5,24 +5,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    <title>vinyl</title>
-    {% block head %} 
-    {% endblock %}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
+      rel="stylesheet"
+    />
+    {% block extra_css %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <nav>
-    <ul>
-      <li><a href="{% url 'album_index' %}">All Albums</a></li>
-      <li><a href="{% url 'album_create' %}">Add an Album</a></li>
-      <!-- Add a new link -->
-      <li><a href="{% url 'playlist-create' %}">Create a Playlist</a></li>
-
-    </ul>
-  </nav>
-    <main>
-     {% block content %} 
-     {% endblock %}
-     </main>
+    <div class="navbar">
+        {% if user.is_authenticated %}
+        <div class="navbar-right"></div>
+          <a href="{% url 'album-index' %}">Albums</a>
+          <a href="{% url 'album-create' %}">Add Album</a>
+          <a href="{% url 'playlist-index' %}">Playlists</a>
+          <a href="{% url 'playlist-create' %}">Create Playlist</a>
+          <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none">{% csrf_token %}</form>
+          <a href="#" onclick="document.getElementById('logout-form').submit();">Logout</a>
+        {% else %}
+          <a href="{% url 'home' %}">Log In</a>
+          <a href="{% url 'signup' %}" class="signup-link">Sign Up</a>
+        {% endif %}
+      </div>
+    </div>
+    <main class="main-container">
+      {% block content %}{% endblock %}
+    </main>
   </body>
 </html>

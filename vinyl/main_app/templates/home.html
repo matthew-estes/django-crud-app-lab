@@ -1,8 +1,19 @@
-{% extends 'base.html' %} 
-{% block content %}
-<h1>vinyl</h1>
-<div class="container">
-  <a href="{% url 'album_index' %}" class="btn back-btn">View All Albums</a>
-</div>
-
+{% extends 'base.html' %} {% load static %} {% block title %}Vinyl{% endblock %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %} {% block content %}
+<main>
+  <section>
+    <h1>vinyl</h1>
+  </section>
+  {% if not user.is_authenticated %}
+  <section class="login">
+    <form action="{% url 'login' %}" method="post" class="login">
+      <h2>Login</h2>
+      {% csrf_token %} {{ form.as_p }}
+      <input type="hidden" name="next" value="{{ next }}" />
+      <button type="submit" class="btn submit">Login</button>
+    </form>
+  </section>
+  {% endif %}
+</main>
 {% endblock %}

@@ -1,27 +1,73 @@
 body {
-  background-image: url(https://i1.wp.com/www.cbvinylrecordart.com/blog/wp-content/uploads/2015/06/classic-vinyl.gif?resize=500%2C281);
-  background-size: 100% 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
   background-color: black;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-left {
+  flex: 1;
+}
+
+.navbar-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar a {
+  margin: 0 10px;
+  text-decoration: none;
   color: white;
+  font-size: 18px;
+  font-family: "Righteous", sans-serif;
+}
+
+.navbar a:hover {
+  color: red;
 }
 
 h1 {
-  color: white;
-  font-size: 80px;
-
+  text-align: center;
+  margin-top: 20px;
 }
 
-.container {
-  font-size: 40px;
-  text-decoration: none;
-  color: red;
+section.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 
-.back-btn{
-  font-size: 40px;
-  text-decoration: none;
-  color: red;
+form.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+form.login h2 {
+  margin-bottom: 15px;
+}
+
+form.login .btn.submit {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+form.login .btn.submit:hover {
+  background-color: #555;
 }
